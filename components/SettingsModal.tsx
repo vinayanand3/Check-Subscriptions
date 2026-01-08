@@ -100,7 +100,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
                 Alert Threshold
               </label>
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden relative">
                     <input
                     type="range"
                     min="1"
