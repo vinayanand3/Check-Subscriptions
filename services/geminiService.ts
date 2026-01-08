@@ -6,9 +6,9 @@ const MODEL_NAME = "gemini-3-flash-preview";
 
 export const analyzeBankStatements = async (files: File[], settings: AnalysisSettings): Promise<AnalysisResult> => {
   try {
-    const apiKey = process.env.API_KEY;
+    const apiKey = settings.apiKey || process.env.API_KEY;
     if (!apiKey) {
-      throw new Error("API Key not found in environment variables.");
+      throw new Error("No API Key found. Please provide an API key in the settings menu.");
     }
 
     const ai = new GoogleGenAI({ apiKey });

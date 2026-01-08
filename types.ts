@@ -35,6 +35,7 @@ export interface FileWithPreview extends File {
 }
 
 export interface AnalysisSettings {
+  apiKey?: string;
   includeKeywords: string[];
   excludeKeywords: string[];
   alertThresholdDays: number;

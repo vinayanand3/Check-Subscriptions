@@ -16,15 +16,38 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   
-  // Default Settings
-  const [settings, setSettings] = useState<AnalysisSettings>({
-    includeKeywords: [],
-    excludeKeywords: [],
-    alertThresholdDays: 3
+  // Load settings from localStorage or use defaults
+  const [settings, setSettings] = useState<AnalysisSettings>(() => {
+    const saved = localStorage.getItem('subscout_settings');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to parse saved settings", e);
+      }
+    }
+    return {
+      includeKeywords: [],
+      excludeKeywords: [],
+      alertThresholdDays: 3,
+      apiKey: ''
+    };
   });
+
+  // Save settings whenever they change
+  React.useEffect(() => {
+    localStorage.setItem('subscout_settings', JSON.stringify(settings));
+  }, [settings]);
 
   const handleAnalyze = async () => {
     if (files.length < 3) return;
+    
+    // Check for API Key
+    if (!settings.apiKey && !process.env.API_KEY) {
+      setError("Please add your Gemini API Key in settings to start the analysis.");
+      setIsSettingsOpen(true);
+      return;
+    }
 
     setIsAnalyzing(true);
     setError(null);
@@ -76,12 +99,14 @@ const App: React.FC = () => {
              <button 
                onClick={() => setIsSettingsOpen(true)}
                className="p-2.5 text-slate-500 hover:bg-slate-100 rounded-full transition-all duration-200 relative hover:text-indigo-600"
-               title="Settings & Preferences"
+               title={!settings.apiKey ? "API Key required" : "Settings & Preferences"}
              >
                <Settings className="w-5 h-5" />
-               {(settings.includeKeywords.length > 0 || settings.excludeKeywords.length > 0) && (
+               {!settings.apiKey ? (
+                 <span className="absolute top-2 right-2.5 w-2.5 h-2.5 bg-red-500 rounded-full ring-2 ring-white animate-pulse"></span>
+               ) : (settings.includeKeywords.length > 0 || settings.excludeKeywords.length > 0) ? (
                  <span className="absolute top-2 right-2.5 w-2 h-2 bg-indigo-500 rounded-full ring-2 ring-white"></span>
-               )}
+               ) : null}
              </button>
              <div className="hidden md:flex items-center gap-2 text-sm font-medium text-emerald-700 bg-emerald-50/80 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-100 shadow-sm">
                 <ShieldCheck className="w-4 h-4" />
