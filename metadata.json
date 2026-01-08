@@ -1,0 +1,5 @@
+{
+  "name": "SubScout - Subscription Analyzer",
+  "description": "Intelligent bank statement analyzer that identifies active subscriptions and visualizes monthly spending habits using Gemini Flash 3.",
+  "requestFramePermissions": []
+}
