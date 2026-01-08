@@ -43,7 +43,7 @@ Your privacy is paramount. **You enter your own API key, and it is stored locall
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/vinayanand3/SubScout.git
+   git clone https://github.com/vinayanand3/Check-Subscriptions.git
    cd SubScout
    ```
 

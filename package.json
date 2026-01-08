@@ -1,9 +1,9 @@
 {
-  "name": "subscout---subscription-analyzer",
+  "name": "check-subscriptions",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://vinayanand3.github.io/SubScout",
+  "homepage": "https://vinayanand3.github.io/Check-Subscriptions",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
