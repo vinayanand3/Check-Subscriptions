@@ -1,4 +1,4 @@
-# 🕵️‍♂️ SubScout: AI-Powered Subscription Analyzer
+# SubScout: AI-Powered Subscription Analyzer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
@@ -9,17 +9,17 @@
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- **🧠 Smart Detection**: Automatically identifies subscriptions (SaaS, Gyms, Utilities, Streaming) from PDF, CSV, and Image formats.
-- **📅 Predictive Alerts**: Calculates and projects your next payment dates so you're never surprised by a renewal.
-- **📊 Financial Visualization**: Beautiful, interactive charts (powered by Recharts) to visualize your monthly burn rate and category spending.
-- **🎨 Modern UX**: A sleek, responsive interface built with Tailwind CSS and Plus Jakarta Sans.
-- **🛡️ Secure & Private**: Your data is processed for analysis only and never stored. 
+- **Smart Detection**: Automatically identifies subscriptions (SaaS, Gyms, Utilities, Streaming) from PDF, CSV, and Image formats.
+- **Predictive Alerts**: Calculates and projects your next payment dates so you're never surprised by a renewal.
+- **Financial Visualization**: Beautiful, interactive charts (powered by Recharts) to visualize your monthly burn rate and category spending.
+- **Modern UX**: A sleek, responsive interface built with Tailwind CSS and Plus Jakarta Sans.
+- **Secure & Private**: Your data is processed for analysis only and never stored.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 19, TypeScript
 - **Styling**: Tailwind CSS, Lucide React (Icons)
@@ -29,12 +29,15 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (Latest LTS)
 - A Google Gemini API Key (Get it from [AI Studio](https://aistudio.google.com/))
+
+### Privacy Note
+Your privacy is paramount. **You enter your own API key, and it is stored locally in your browser (localStorage).** It is used **only** to process your analysis requests and is never sent to any external server other than the official Google Gemini API.
 
 ### Installation
 
@@ -63,7 +66,7 @@
 
 ---
 
-## 📖 Usage
+## Usage
 
 1. **Upload**: Drag and drop at least 3 months of bank statements (PDF, CSV, or screenshots).
 2. **Configure**: Set custom keywords to force-include or exclude specific transactions in the Settings modal.
@@ -72,7 +75,7 @@
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
